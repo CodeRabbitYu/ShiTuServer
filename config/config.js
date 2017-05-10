@@ -1,12 +1,19 @@
 'use strict'
 // 这里需要导入七牛云的key, 可以改成自己的
-// 在个人中心=>密钥管理=>AK/SK
+
+// 需要制定四个参数
+/**
+ * imagePutPolicy : 图片的的存储空间
+ * imageDomainName : 图片的测试域名(可以换成正式的)
+ * AK : 个人中心 => 秘钥管理 => AK
+ * SK : 个人中心 => 秘钥管理 => SK
+ */
+
 module.exports = {
-    
     qiniu:{
-        imagePutPolicy:'shitu',
-        imageDomainName:'oppuvsot2.bkt.clouddn.com',
-        AK:'zWkm94t44Z5J0kvuAl_PlPbRJ-7IprJHI73-k7Au',
-        SK:'oO033gcvPpKX7KrEq53kEaEfZ32e9LLbQfSoDeLb',
+        imagePutPolicy:'',
+        imageDomainName:'',
+        AK:'',
+        SK:'',
     },
 }
