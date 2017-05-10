@@ -1,6 +1,7 @@
 'use strict'
 // 这里需要导入七牛云的key, 可以改成自己的
 
+
 // 需要制定四个参数
 /**
  * imagePutPolicy : 图片的的存储空间

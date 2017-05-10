@@ -12,14 +12,14 @@ var querystring = require('querystring');
 qiniu.conf.ACCESS_KEY = config.qiniu.AK
 qiniu.conf.SECRET_KEY = config.qiniu.SK
 
-exports.getGankUrl = function(type,page){
+exports.getGankUrl = function(type,count,page){
 	console.log('getGankUrl');
-	console.log(type);
-	console.log(page);
+	// console.log(type);
+	// console.log(page);
  	return new Promise(function (resolve,reject) {
 		type = encodeURI(type);
-		var url = 'http://gank.io/api/data/'+type+'/20/'+page;
-		console.log(url);
+		var url = 'http://gank.io/api/data/'+type+'/'+count+'/'+page;
+		// console.log(url);
 		var str = '';
 
 		var req = http.request(url,function(res){
@@ -33,7 +33,7 @@ exports.getGankUrl = function(type,page){
 				}catch(e){
 					reject(e);
 				}
-				console.log(data);
+				// console.log(data);
 				if(data.error === false){
 					// console.log(data);
 					resolve(data);

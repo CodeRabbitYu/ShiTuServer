@@ -24,11 +24,12 @@ exports.getGankData = async (ctx, next) => {
     // console.log(url.hash);//取到的值是：null 
     // console.log(url.query);// 取到的值是：aa=001
     var query = url.query;
+    // console.log(query);
     var type = query.type;
-
+    var count = query.count;
     var page = query.page;
 
-    const data = await robot.getGankUrl(type,page);
+    const data = await robot.getGankUrl(type,count,page);
 
     ctx.body = {
         success:true,
