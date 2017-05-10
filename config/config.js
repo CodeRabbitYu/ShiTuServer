@@ -4,6 +4,9 @@
 module.exports = {
     
     qiniu:{
-
+        imagePutPolicy:'shitu',
+        imageDomainName:'oppuvsot2.bkt.clouddn.com',
+        AK:'zWkm94t44Z5J0kvuAl_PlPbRJ-7IprJHI73-k7Au',
+        SK:'oO033gcvPpKX7KrEq53kEaEfZ32e9LLbQfSoDeLb',
     },
 }

@@ -8,7 +8,7 @@ var robot = require('../service/robot.js');
 var uuid = require('uuid');
 var Promise = require('bluebird');
 var URL = require('url');
-
+var config = require('../config/config.js');
 
 exports.getGankData = async (ctx, next) => {
     console.log('getGankData');
@@ -100,10 +100,10 @@ exports.postWebUrl = async (ctx, next) => {
     
     // 如果使用自己的七牛key,需要将下面的域名换成自己的
 
-    var imageURL = 'http://oppuvsot2.bkt.clouddn.com/' + token;
-    // var webViewURL = 'http:image.baidu.com/n/pc_search?rn=10&appid=0&tag=1&isMobile=1&queryImageUrl='
- // + uri + '&querySign=&fromProduct=&productBackUrl=&fm=&uptype=plug_in'
+    var imageURL = 'http://'+config.qiniu.imageDomainName+'/'+token;
 
+    console.log(imageURL);    
+ 
     var webURL = 'http://image.baidu.com/wiseshitu?' +
    'guess=1&uptype=upload_wise&queryImageUrl=' +
     imageURL +'&querySign=&simid='

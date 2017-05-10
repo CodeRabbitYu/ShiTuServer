@@ -82,7 +82,7 @@ exports.getQiniuToken = function(){
 
 	// 如果使用自己的七牛key,需要将下面的PutPolicy换成自己的创建的
 
-	putPolicy = new qiniu.rs.PutPolicy('shitu' + ":" + key);
+	putPolicy = new qiniu.rs.PutPolicy(config.qiniu.imagePutPolicy + ":" + key);
 	
     var token = putPolicy.token()
     // console.log(token);
