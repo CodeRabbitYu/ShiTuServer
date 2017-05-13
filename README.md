@@ -30,5 +30,5 @@ const { res } = this;
 ```
 如果遇到上面的报错,可以升级一下node环境试一下.
 
-![]()
+![](https://github.com/RabbitDream/ShiTuServer/blob/master/%E4%B8%83%E7%89%9B%E4%BA%91%E9%85%8D%E7%BD%AE.png)
 
