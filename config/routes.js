@@ -12,13 +12,18 @@ module.exports = function () {
 		prefix : '/api'
 	})
 
-	router.get('/shitu/getUserToken',App.getUserToken);
-	router.get('/shitu/getUpLoadToken',App.getUpLoadToken);
-    router.post('/shitu/postWebUrl',App.hasBody,App.postWebUrl);
+	router.get('/userToken',App.userToken);
+
+	router.get('/qiniu/upLoadToken',App.upLoadToken);
+
+    router.post('/shitu/detailURL',App.hasBody,App.detailURL);
+
+	router.get('/gank/listData',App.listData);
+
+	router.post('/user/login',App.hasBody,App.login);
+
+
+	// 获取图片下载地址  暂时没用到，以后可能将历史记录用接口返回
 	router.get('/shitu/getImageDownUrl',App.getImageDownUrl);
-
-	router.get('/shitu/getGankData',App.getGankData);
-
-
 	return router;
 }

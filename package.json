@@ -1,9 +1,11 @@
 {
   "name": "shitu-server",
   "version": "1.0.0",
-  "description": "一款识别图片和查看咨询的app",
+  "private": true,
+  "description": "一款识别图片的app",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rabbit",
@@ -16,6 +18,7 @@
     "koa-logger": "^2.0.1",
     "koa-router": "^7.1.1",
     "koa-session": "^5.0.0",
+    "leanengine": "^2.0.0-beta.1",
     "lodash": "^4.17.4",
     "mongoose": "^4.9.5",
     "qiniu": "^6.1.13",
@@ -25,5 +28,8 @@
     "url": "^0.11.0",
     "uuid": "^3.0.1",
     "xss": "^0.3.3"
+  },
+  "engines": {
+    "node": "7.8"
   }
 }

@@ -19,7 +19,7 @@ exports.getGankUrl = function(type,count,page){
  	return new Promise(function (resolve,reject) {
 		type = encodeURI(type);
 		var url = 'http://gank.io/api/data/'+type+'/'+count+'/'+page;
-		// console.log(url);
+
 		var str = '';
 
 		var req = http.request(url,function(res){
@@ -34,7 +34,7 @@ exports.getGankUrl = function(type,count,page){
 					reject(e);
 				}
 				// console.log(data);
-				if(data.error === false){
+				if(data && data.error === false){
 					// console.log(data);
 					resolve(data);
 					

@@ -10,8 +10,9 @@ var Promise = require('bluebird');
 var URL = require('url');
 var config = require('../config/config.js');
 
-exports.getGankData = async (ctx, next) => {
-    console.log('getGankData');
+// gank数据
+exports.listData = async (ctx, next) => {
+    console.log('listData');
 
     var url = URL.parse(ctx.request.url,true);
     // console.log(url);
@@ -50,8 +51,8 @@ exports.getImageDownUrl = async (ctx, next) => {
 }
 
 // 获取用户Token
-exports.getUserToken = async (ctx, next) => {
-    console.log('getUserToken');
+exports.userToken = async (ctx, next) => {
+    console.log('userToken');
     var token = uuid.v4();
     // console.log(token);
     ctx.body = {
@@ -64,6 +65,7 @@ exports.getUserToken = async (ctx, next) => {
 // 判断是否存在body
 exports.hasBody = async (ctx, next) => {
     console.log('hasBody');
+    
 	// 通过request的获取body，如果request.body为空，那就将body赋空值
 	let body = ctx.request.header.body || {}
     // console.log(ctx.request);
@@ -71,7 +73,7 @@ exports.hasBody = async (ctx, next) => {
 	if(!body || Object.keys(body).length === 0){
 		ctx.body = {
 			success:false,
-			err : '是不是漏掉什么了？'
+			err : '没有body！'
 		}
 		return next;
 	}
@@ -80,21 +82,40 @@ exports.hasBody = async (ctx, next) => {
 }
 
 // 获取上传图片Token
-exports.getUpLoadToken = async (ctx, next) => {
-    console.log('getUpLoadToken');
+exports.upLoadToken = async (ctx, next) => {
+    console.log('upLoadToken');
     // console.log(ctx.request);
 
-    let data = robot.getQiniuToken()    
+    let data = robot.getQiniuToken();
+    console.log('getQiniuToken');
+    // console.log(data); 
     ctx.body = {
         success:true,
         data: data
     }
 }
 
-exports.postWebUrl = async (ctx, next) => {
+// 登录
+exports.login = async (ctx, next) => {
+    console.log('login');
     var body = ctx.request.header.body;
 
-    console.log('getWebUrl');
+    console.log(body);
+
+
+    ctx.body = {
+        success:true,
+        data: 'success'
+    }
+
+}
+
+// webViewURL
+exports.detailURL = async (ctx, next) => {
+    console.log('detailURL');
+    // console.log(ctx.request);
+
+    var body = ctx.request.header.body;
 
     var token = JSON.parse(body).token;
 
@@ -103,7 +124,7 @@ exports.postWebUrl = async (ctx, next) => {
 
     var imageURL = 'http://'+config.qiniu.imageDomainName+'/'+token;
 
-    console.log(imageURL);    
+    // console.log(imageURL);    
  
     var webURL = 'http://image.baidu.com/wiseshitu?' +
    'guess=1&uptype=upload_wise&queryImageUrl=' +
