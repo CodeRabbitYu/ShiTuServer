@@ -9,19 +9,16 @@ var session = require('koa-session');
 var bodyParser = require('koa-bodyparser');
 var app = new Koa();
 var AV = require('leanengine');
+var config = require('./config/config.js');
 
-AV.init({
-  appId: process.env.LEANCLOUD_APP_ID || 'rADMnMUTRp8rWHbJjXRU0apu-gzGzoHsz',
-  appKey: process.env.LEANCLOUD_APP_KEY || 'iPvJhiX3qSU081YlEnMOk4hG',
-  masterKey: process.env.LEANCLOUD_APP_MASTER_KEY || 'vCmXnhM73tHB1LVr0OzSmxvt'
-});
+
 
 app.keys = ['Shitu_server'];
 app.use(logger());
 app.use(session(app));
 app.use(bodyParser());
 
-app.use(AV.koa());
+
 
 // app.listen(process.env.LEANCLOUD_APP_PORT);
 

@@ -11,11 +11,11 @@
  */
 
 module.exports = {
-   
-    //  qiniu:{
-    //     imagePutPolicy:'',
-    //     imageDomainName:'',
-    //     AK:'',
-    //     SK:'',
-    // },
+    
+     qiniu:{
+        imagePutPolicy:'',
+        imageDomainName:'',
+        AK:'',
+        SK:'',
+    },
 }
