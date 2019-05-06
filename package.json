@@ -1,35 +1,54 @@
 {
-  "name": "shitu-server",
+  "name": "example",
   "version": "1.0.0",
+  "description": "Egg Demo",
   "private": true,
-  "description": "一款识别图片的app",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "egg": {
+    "declarations": true
   },
-  "author": "Rabbit",
-  "license": "MIT",
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "http": "0.0.0",
-    "koa": "^2.2.0",
-    "koa-bodyparser": "^4.2.0",
-    "koa-logger": "^2.0.1",
-    "koa-router": "^7.1.1",
-    "koa-session": "^5.0.0",
-    "leanengine": "^2.0.0-beta.1",
-    "lodash": "^4.17.4",
-    "mongoose": "^4.9.5",
-    "qiniu": "^6.1.13",
-    "querystring": "^0.2.0",
-    "sha1": "^1.1.1",
-    "speakeasy": "^2.0.0",
-    "url": "^0.11.0",
-    "uuid": "^3.0.1",
-    "xss": "^0.3.3"
+    "egg": "^2.15.1",
+    "egg-mongoose": "^3.1.1",
+    "egg-scripts": "^2.11.0",
+    "util": "^0.11.1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "babel-eslint": "^10.0.1",
+    "egg-bin": "^4.11.1",
+    "egg-ci": "^1.11.0",
+    "egg-mock": "^3.21.0",
+    "eslint": "^5.16.0",
+    "eslint-config-egg": "^7.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.17.0",
+    "webstorm-disable-index": "^1.2.0"
   },
   "engines": {
-    "node": "7.8"
-  }
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-example",
+    "stop": "egg-scripts stop --title=egg-server-example",
+    "dev": "egg-bin dev --port 7001",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Rabbit",
+  "license": "MIT"
 }
