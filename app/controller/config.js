@@ -1,26 +1,30 @@
-'use strict';
+/**
+ * Created by Rabbit on 2019/05/06.
+ */
 
-const uuidv1 = require('uuid/v1');
+'use strict';
 
 const Controller = require('egg').Controller;
 
+const uuidv1 = require('uuid/v1');
+
 const NewsType = {
-  'BaiSi': 0,
-  'GanHuo': 1,
-}
+  BaiSi: 0,
+  GanHuo: 1
+};
 
 class ConfigController extends Controller {
-  async index() {
+  async loadConfigData() {
     const { ctx } = this;
     const uuid = uuidv1();
 
     ctx.body = {
       success: true,
-      data: { 
+      data: {
         uuid: uuid,
         newsType: NewsType.BaiSi
       }
-    }
+    };
   }
 }
 

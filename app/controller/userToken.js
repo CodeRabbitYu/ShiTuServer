@@ -1,16 +1,20 @@
-'use strict';
+/**
+ * Created by Rabbit on 2019/05/06.
+ */
 
-const uuidv1 = require('uuid/v1');
+'use strict';
 
 const Controller = require('egg').Controller;
 
+const uuidv1 = require('uuid/v1');
+
 class UserTokenController extends Controller {
-  async index() {
+  async loadUserToken() {
     const { ctx } = this;
     ctx.body = {
       success: true,
       data: uuidv1()
-    }
+    };
   }
 }
 

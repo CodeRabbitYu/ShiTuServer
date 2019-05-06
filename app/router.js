@@ -1,3 +1,7 @@
+/**
+ * Created by Rabbit on 2019/05/06.
+ */
+
 'use strict';
 
 /**
@@ -8,17 +12,14 @@ module.exports = app => {
   // const {hasBody} = app.middleware;
   const hasBody = app.middleware.hasBody();
 
-  router.get('/config', controller.config.config.index);
+  router.get('/config', controller.config.loadConfigData);
+  router.get('/userToken', controller.userToken.loadUserToken);
 
   router.get('/news', controller.news.loadNewsData);
-
-  // router.get('/gank', controller.gank.index.loadGankData);
 
   router.get('/user', controller.user.index.findUser);
 
   router.get('/addUser', controller.user.index.addUser);
 
   router.get('/deleteUser', controller.user.index.deleteUser);
-
-  // router.get('/baisi/:id', controller.baisi.index.index)
 };
