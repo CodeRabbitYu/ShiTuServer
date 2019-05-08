@@ -2,7 +2,6 @@
 
 'use strict';
 
-
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -21,19 +20,33 @@ module.exports = appInfo => {
 
   // add your user config here
   const userConfig = {
-    // myAppName: 'egg',
+    // myAppName: 'egg',s
+  };
+
+  /**
+   * 域名只有30天，需要更新imagePutPolicy和imageDomainName
+   */
+  config.qiniu = {
+    imagePutPolicy: '111',
+    imageDomainName: 'pr2rtw08n.bkt.clouddn.com',
+    AK: 'zWkm94t44Z5J0kvuAl_PlPbRJ-7IprJHI73-k7Au',
+    SK: 'oO033gcvPpKX7KrEq53kEaEfZ32e9LLbQfSoDeLb'
   };
 
   config.mongoose = {
     client: {
       url: 'mongodb://127.0.0.1/example',
-      options: {},
+      options: {}
     }
-  }
+  };
+
+  config.security = {
+    csrf: false
+  };
 
   return {
     ...config,
-    ...userConfig,
+    ...userConfig
   };
 };
 
@@ -43,8 +56,6 @@ module.exports = appInfo => {
 //     options: {},
 //   }
 // };
-
-
 
 // exports.mongoose = {
 //   clients: {

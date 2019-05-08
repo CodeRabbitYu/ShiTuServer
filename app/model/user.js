@@ -11,5 +11,5 @@ module.exports = app => {
     password: { type: String }
   });
 
-  return mongoose.model('User', UserSchema, 'user');;
+  return mongoose.model('User', UserSchema, 'user');
 }

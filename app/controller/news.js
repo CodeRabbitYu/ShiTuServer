@@ -8,7 +8,7 @@ class NewsController extends Controller {
     const newsData = await ctx.service.news.fetchNewsData();
     ctx.body = {
       data: newsData,
-      success: true
+      status: 'success'
     };
   }
 }

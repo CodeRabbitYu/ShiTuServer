@@ -13,7 +13,7 @@
             }
             ctx.status = 400;
             return;
-        };
+        }
         await next();
     }
 }

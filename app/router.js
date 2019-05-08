@@ -12,8 +12,14 @@ module.exports = app => {
   // const {hasBody} = app.middleware;
   const hasBody = app.middleware.hasBody();
 
+  router.get('/home', controller.home.index);
+
   router.get('/config', controller.config.loadConfigData);
   router.get('/userToken', controller.userToken.loadUserToken);
+
+  router.get('/uploadToken', controller.qiniu.token.loadToken);
+
+  router.post('/detailUrl', controller.qiniu.upload.image);
 
   router.get('/news', controller.news.loadNewsData);
 

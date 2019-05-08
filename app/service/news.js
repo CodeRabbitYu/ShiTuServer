@@ -17,7 +17,14 @@ const GankType = 'iOS' | 'android' | '福利';
 
 class NewsService extends Service {
   async fetchNewsData() {
-    return this.fetchBaiSiData();
+    const { type } = this.ctx.query;
+    const _type = encodeURI(type);
+
+    if (type === '福利' || type === 'iOS') {
+      return this.fetchGankData();
+    } else {
+      return this.fetchBaiSiData();
+    }
   }
 
   async fetchBaiSiData() {
@@ -25,7 +32,7 @@ class NewsService extends Service {
     const url = `http://api.budejie.com/api/api_open.php?a=list&c=data&type=${type}&maxtime=${maxtime}`;
     const budejieData = await this.ctx.curl(url, { dataType: 'json' });
     // ctx.body = data;
-    return budejieData;
+    return budejieData.data;
   }
 
   async fetchGankData() {
@@ -34,7 +41,8 @@ class NewsService extends Service {
     const url = `http://gank.io/api/data/${_type}/${count}/${page}`;
     // const url = `http://gank.io/api/data/iOS/20/1`;
     const gankData = await this.ctx.curl(url, { dataType: 'json' });
-    return gankData;
+
+    return gankData.data.results;
   }
 }
 
